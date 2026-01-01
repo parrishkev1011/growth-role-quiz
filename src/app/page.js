@@ -307,6 +307,22 @@ export default function Page() {
     setDone(false);
     setEmail("");
   }
+async function startCheckout(role, email) {
+  try {
+    const resp = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ role, email }),
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data?.error || "Checkout failed");
+
+    window.location.href = data.url;
+  } catch (e) {
+    alert(e?.message || "Checkout error");
+  }
+}
 
   const result = useMemo(() => {
     if (!done) return null;
@@ -400,9 +416,13 @@ export default function Page() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email for delivery (recommended)"
                 />
-                <button style={styles.primaryBtn} onClick={() => alert("Next step: wire this to Stripe Checkout")}>
-                  Unlock for $7
-                </button>
+                <button
+  style={styles.primaryBtn}
+  onClick={() => startCheckout(result.winner, email)}
+>
+  Unlock for $7
+</button>
+
               </div>
               <div style={{ ...styles.muted, fontSize: 13, marginTop: 8 }}>
                 Checkout is coming next. For now, this button is a placeholder.
