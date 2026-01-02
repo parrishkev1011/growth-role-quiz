@@ -40,7 +40,7 @@ export default function UnlockButtonClient({ role }: { role: string }) {
         disabled={loading}
         className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-violet-400 px-5 py-2 text-sm font-semibold text-slate-900"
       >
-        {loading ? "Redirecting…" : "Unlock blueprint — $"}
+        {loading ? "Redirecting…" : "Unlock Full Results — $7"}
       </button>
       {error ? (
         <div className="mt-3 text-sm text-red-600">{error}</div>

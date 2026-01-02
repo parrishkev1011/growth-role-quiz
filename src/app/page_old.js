@@ -44,33 +44,34 @@ const ROLE_COPY = {
     title: "The Visionary",
     paragraph:
       "You naturally think ahead. While others focus on what's happening now, your attention is already on what's coming next and how today's choices shape the future. You're drawn to patterns, possibilities, and connections that aren't obvious yet. You're often the one introducing new directions or perspectives that help others see beyond the present moment.",
-    strength: "You see possibilities before they're fully formed.",
+    strength: "You see possibilities before they’re fully formed.",
     friction:
       "You can feel disconnected from the pace or priorities of the present.",
   },
 };
 
 const QUESTIONS = [
+  // Architect (3)
   {
-    text: "When you're faced with a new project and limited information, what do you usually do first?",
+    text: "When you’re faced with a new project and limited information, what do you usually do first?",
     options: [
-      { label: "Start mapping how all the pieces might fit together before acting", role: "architect" },
+      { label: "Start mapping out how all the pieces might fit together before acting", role: "architect" },
       { label: "Take a small action to see what happens and adjust later", role: "driver" },
       { label: "Talk it through with others to get perspective", role: "guide" },
       { label: "Focus on the long-term possibility and work backward", role: "visionary" },
     ],
   },
   {
-    text: "Which situation frustrates you the most?",
+    text: "What tends to slow you down the most?",
     options: [
-      { label: "Not having clarity about how things connect", role: "architect" },
-      { label: "Long discussions that don't lead to a clear next step", role: "driver" },
+      { label: "Not having enough clarity about how things connect", role: "architect" },
+      { label: "Feeling constrained by too many rules or steps", role: "driver" },
       { label: "Unclear dynamics or tension between people", role: "guide" },
       { label: "Losing sight of the bigger picture", role: "visionary" },
     ],
   },
   {
-    text: "When pressure is high and decisions need to be made quickly, you're most likely to:",
+    text: "When pressure is high and decisions need to be made quickly, you’re most likely to:",
     options: [
       { label: "Pause to make sure the decision fits the overall system", role: "architect" },
       { label: "Move forward quickly and fix issues as they come up", role: "driver" },
@@ -78,40 +79,102 @@ const QUESTIONS = [
       { label: "Focus on where this choice leads in the future", role: "visionary" },
     ],
   },
+
+  // Driver (3)
   {
-    text: "When something breaks or fails, you're most likely to:",
+    text: "When something feels stuck or unclear, what’s your most natural response?",
     options: [
-      { label: "Fix the process so it doesn't happen again", role: "builder" },
-      { label: "Push forward and solve it on the fly", role: "driver" },
-      { label: "Check in with people affected", role: "guide" },
-      { label: "Step back and rethink the overall direction", role: "visionary" },
+      { label: "Take action to create momentum and adjust as things unfold", role: "driver" },
+      { label: "Step back and design a clearer plan before moving", role: "architect" },
+      { label: "Talk it through with others to understand different perspectives", role: "guide" },
+      { label: "Reframe the situation around the bigger picture", role: "visionary" },
     ],
   },
   {
-    text: "When things become chaotic or emotionally charged, what's your natural response?",
+    text: "Which situation is most frustrating for you?",
     options: [
-      { label: "Stay calm and help steady the situation", role: "stabilizer" },
-      { label: "Push forward to regain momentum", role: "driver" },
-      { label: "Reorganize systems to restore order", role: "builder" },
-      { label: "Focus on where things need to go long-term", role: "visionary" },
+      { label: "Long discussions that don’t lead to a clear next step", role: "driver" },
+      { label: "Being asked to move without understanding the full system", role: "architect" },
+      { label: "Tension between people slowing things down", role: "guide" },
+      { label: "Losing sight of where things are ultimately heading", role: "visionary" },
+    ],
+  },
+  {
+    text: "When you make a decision and it doesn’t go perfectly, you’re most likely to:",
+    options: [
+      { label: "Adjust quickly and keep moving forward", role: "driver" },
+      { label: "Rework the structure to prevent future issues", role: "architect" },
+      { label: "Check in with people to repair alignment", role: "guide" },
+      { label: "Reevaluate the long-term direction", role: "visionary" },
+    ],
+  },
+
+  // Guide (3)
+  {
+    text: "When there’s tension or misunderstanding in a group, what do you usually do first?",
+    options: [
+      { label: "Step in to help people understand each other", role: "guide" },
+      { label: "Push forward so progress isn’t delayed", role: "driver" },
+      { label: "Reorganize the plan to reduce friction", role: "builder" },
+      { label: "Refocus everyone on the bigger picture", role: "visionary" },
     ],
   },
   {
     text: "Which situation is most draining for you?",
     options: [
-      { label: "Being around unresolved tension", role: "guide" },
+      { label: "Being around unresolved tension or emotional distance", role: "guide" },
       { label: "Feeling slowed down by too much discussion", role: "driver" },
-      { label: "Constant changes that disrupt systems that work", role: "builder" },
-      { label: "Being stuck dealing only with immediate details", role: "visionary" },
+      { label: "Working without a clear structure or system", role: "builder" },
+      { label: "Losing sight of long-term direction", role: "visionary" },
     ],
   },
   {
-    text: "When making a difficult decision, you're most influenced by:",
+    text: "When making a difficult decision, you’re most influenced by:",
     options: [
       { label: "How it will affect the people involved", role: "guide" },
       { label: "Whether it keeps things moving", role: "driver" },
       { label: "Whether it fits the overall structure", role: "architect" },
       { label: "Whether it aligns with future goals", role: "visionary" },
+    ],
+  },
+
+  // Builder (3)
+  {
+    text: "When a new idea is introduced, what’s your first instinct?",
+    options: [
+      { label: "Ask how it would actually be built and maintained", role: "builder" },
+      { label: "Look for ways to move on it quickly", role: "driver" },
+      { label: "Consider how people will respond to it", role: "guide" },
+      { label: "Focus on how it fits into the long-term vision", role: "visionary" },
+    ],
+  },
+  {
+    text: "Which situation frustrates you the most?",
+    options: [
+      { label: "Constant changes that disrupt systems that already work", role: "builder" },
+      { label: "Slow decision-making that kills momentum", role: "driver" },
+      { label: "Emotional tension that blocks progress", role: "guide" },
+      { label: "Big ideas with no clear future direction", role: "visionary" },
+    ],
+  },
+  {
+    text: "When something breaks or fails, you’re most likely to:",
+    options: [
+      { label: "Fix the process so it doesn’t happen again", role: "builder" },
+      { label: "Push forward and solve it on the fly", role: "driver" },
+      { label: "Check in with people affected", role: "guide" },
+      { label: "Step back and rethink the overall direction", role: "architect" },
+    ],
+  },
+
+  // Stabilizer (2)
+  {
+    text: "When things become chaotic or emotionally charged, what’s your natural response?",
+    options: [
+      { label: "Stay calm and help steady the situation", role: "stabilizer" },
+      { label: "Push forward to regain momentum", role: "driver" },
+      { label: "Reorganize systems to restore order", role: "builder" },
+      { label: "Focus on where things need to go long-term", role: "visionary" },
     ],
   },
   {
@@ -123,8 +186,28 @@ const QUESTIONS = [
       { label: "Losing sight of the bigger picture", role: "visionary" },
     ],
   },
+
+  // Visionary (3)
   {
-    text: "When others want step-by-step plans, you're more likely to:",
+    text: "When you’re thinking about a decision, what naturally gets your attention first?",
+    options: [
+      { label: "Where this could lead in the future", role: "visionary" },
+      { label: "How to take action quickly", role: "driver" },
+      { label: "How to build it in a reliable way", role: "builder" },
+      { label: "How people will be affected right now", role: "guide" },
+    ],
+  },
+  {
+    text: "Which situation is most frustrating for you?",
+    options: [
+      { label: "Being stuck dealing only with immediate details", role: "visionary" },
+      { label: "Slow momentum when action is needed", role: "driver" },
+      { label: "Systems that feel rigid or outdated", role: "builder" },
+      { label: "Emotional tension that disrupts focus", role: "stabilizer" },
+    ],
+  },
+  {
+    text: "When others want step-by-step plans, you’re more likely to:",
     options: [
       { label: "Explain the direction and let the details unfold", role: "visionary" },
       { label: "Push forward and refine as you go", role: "driver" },
@@ -193,7 +276,6 @@ function pickWinner(sc, first) {
 }
 
 export default function Page() {
-  const [showStart, setShowStart] = useState(true);
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState(Array(QUESTIONS.length).fill(null));
   const [done, setDone] = useState(false);
@@ -220,29 +302,27 @@ export default function Page() {
   }
 
   function restart() {
-    setShowStart(true);
     setIdx(0);
     setAnswers(Array(QUESTIONS.length).fill(null));
     setDone(false);
     setEmail("");
   }
+async function startCheckout(role, email) {
+  try {
+    const resp = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ role, email }),
+    });
 
-  async function startCheckout(role, email) {
-    try {
-      const resp = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ role, email }),
-      });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data?.error || "Checkout failed");
 
-      const data = await resp.json();
-      if (!resp.ok) throw new Error(data?.error || "Checkout failed");
-
-      window.location.href = data.url;
-    } catch (e) {
-      alert(e?.message || "Checkout error");
-    }
+    window.location.href = data.url;
+  } catch (e) {
+    alert(e?.message || "Checkout error");
   }
+}
 
   const result = useMemo(() => {
     if (!done) return null;
@@ -262,20 +342,10 @@ export default function Page() {
             <p style={styles.sub}>
               A short, entertaining quiz that reveals how you naturally create momentum — and what might be slowing you down.
             </p>
-            {showStart && (
-              <div style={{ marginTop: 16 }}>
-                <button style={styles.startBtn} onClick={() => setShowStart(false)}>
-                  Start the Quiz
-                </button>
-                <div style={{ ...styles.muted, fontSize: 13, marginTop: 10 }}>
-                  Takes ~2 minutes • Instant results • No spam
-                </div>
-              </div>
-            )}
           </div>
         </header>
 
-        {!showStart && !done && (
+        {!done ? (
           <section style={styles.card}>
             <div style={styles.quizTop}>
               <div>
@@ -306,17 +376,15 @@ export default function Page() {
             <div style={styles.nav}>
               <button style={{ ...styles.smallBtn, opacity: idx === 0 ? 0.5 : 1 }} onClick={back} disabled={idx === 0}>Back</button>
               <button style={{ ...styles.primaryBtn, opacity: chosen == null ? 0.6 : 1 }} onClick={next} disabled={chosen == null}>
-                {idx === QUESTIONS.length - 1 ? "See My Results" : "Next"}
+                {idx === QUESTIONS.length - 1 ? "See my role" : "Next"}
               </button>
             </div>
           </section>
-        )}
-
-        {done && (
+        ) : (
           <section style={styles.card}>
             <div style={styles.resultHead}>
               <div>
-                <div style={styles.tag}>Your Momentum Type</div>
+                <div style={styles.tag}>Your Growth Role</div>
                 <h2 style={styles.h2}>{result.title}</h2>
               </div>
               <button style={styles.smallBtn} onClick={restart}>Retake</button>
@@ -335,58 +403,29 @@ export default function Page() {
               </div>
             </div>
 
-            <div style={{ ...styles.muted, fontSize: 13, marginTop: 12, marginBottom: 16 }}>
-              Access saved — you can come back anytime.
-            </div>
-
             <div style={styles.upsell}>
-              <h3 style={{ margin: "0 0 6px" }}>Unlock Your Full Momentum Map</h3>
+              <h3 style={{ margin: "0 0 6px" }}>Want the full blueprint?</h3>
               <p style={styles.muted}>
-                You've seen how you naturally create momentum. This shows you how to actually use it — and what to stop doing.
+                Unlock how your role shows up under stress, decision patterns, communication tendencies, blind spots,
+                growth recommendations, and the environments you thrive in.
               </p>
-              <div style={{ marginTop: 12, marginBottom: 12 }}>
-                <div style={styles.bulletList}>
-                  <div style={styles.bullet}>
-                    <b>Your Momentum Strength</b>
-                    <div style={styles.muted}>What you should lean into instead of forcing what doesn't fit</div>
-                  </div>
-                  <div style={styles.bullet}>
-                    <b>Your Momentum Leak</b>
-                    <div style={styles.muted}>The specific pattern that quietly slows your progress</div>
-                  </div>
-                  <div style={styles.bullet}>
-                    <b>Your 30-Day Focus</b>
-                    <div style={styles.muted}>What actually deserves your attention right now — and what doesn't</div>
-                  </div>
-                  <div style={styles.bullet}>
-                    <b>Do Less / Do More</b>
-                    <div style={styles.muted}>Simple constraints that create compounding results</div>
-                  </div>
-                  <div style={styles.bullet}>
-                    <b>Clear Next Steps</b>
-                    <div style={styles.muted}>Practical actions you can apply immediately</div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ ...styles.muted, fontSize: 14, marginBottom: 12 }}>
-                No motivation. No fluff. Just clarity.
-              </div>
               <div style={styles.emailRow}>
                 <input
                   style={styles.input}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email (optional)"
+                  placeholder="Email for delivery (recommended)"
                 />
                 <button
-                  style={styles.primaryBtn}
-                  onClick={() => startCheckout(result.winner, email)}
-                >
-                  Unlock Full Results — $7
-                </button>
+  style={styles.primaryBtn}
+  onClick={() => startCheckout(result.winner, email)}
+>
+  Unlock for $7
+</button>
+
               </div>
-              <div style={{ ...styles.muted, fontSize: 13, marginTop: 10 }}>
-                One-time • Instant access • Revisit anytime
+              <div style={{ ...styles.muted, fontSize: 13, marginTop: 8 }}>
+                Checkout is coming next. For now, this button is a placeholder.
               </div>
             </div>
           </section>
@@ -457,16 +496,6 @@ const styles = {
     color: "#e9eef5",
     cursor: "pointer",
   },
-  startBtn: {
-    padding: "14px 24px",
-    borderRadius: 14,
-    border: 0,
-    background: "linear-gradient(135deg,#7dd3fc,#a78bfa)",
-    color: "#061018",
-    fontSize: 16,
-    fontWeight: 800,
-    cursor: "pointer",
-  },
   primaryBtn: {
     padding: "10px 12px",
     borderRadius: 12,
@@ -490,7 +519,7 @@ const styles = {
   h2: { margin: "10px 0 8px", fontSize: 28 },
   resultP: { margin: 0, color: "#a9b7c7", fontSize: 16, lineHeight: 1.6, maxWidth: "75ch" },
 
-  sf: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 14 },
+  sf: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 14, marginBottom: 16 },
   sfBox: {
     border: "1px solid rgba(255,255,255,.10)",
     borderRadius: 14,
@@ -506,15 +535,7 @@ const styles = {
     background:
       "radial-gradient(600px 260px at 0% 0%, rgba(125,211,252,.12), transparent 65%), rgba(17,27,39,.55)",
   },
-  bulletList: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 10,
-  },
-  bullet: {
-    fontSize: 14,
-  },
-  emailRow: { display: "flex", gap: 10, flexWrap: "wrap" },
+  emailRow: { display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10 },
   input: {
     flex: 1,
     minWidth: 240,

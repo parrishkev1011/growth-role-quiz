@@ -75,7 +75,7 @@ export default async function BlueprintPage({
       <header className="space-y-4 pb-12">
         <div className="flex items-center gap-2">
           <div className="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">
-            Growth Role Blueprints
+            Momentum Mapping Framework
           </div>
           {fulfilled ? (
             <span className="inline-block rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-900 dark:bg-amber-900/20 dark:text-amber-100">
@@ -95,6 +95,12 @@ export default async function BlueprintPage({
         <p className="text-xl leading-relaxed text-neutral-700 dark:text-neutral-300">
           {blueprint.subhead}
         </p>
+
+        {fulfilled && (
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            Access saved — you can come back anytime.
+          </p>
+        )}
       </header>
 
       <div className="space-y-12">
@@ -117,9 +123,9 @@ export default async function BlueprintPage({
           ))
         ) : (
           <div className="rounded-lg border border-neutral-200 p-8 text-center dark:border-neutral-800">
-            <h3 className="text-2xl font-semibold">Unlock this blueprint</h3>
+            <h3 className="text-2xl font-semibold">Unlock Your Full Momentum Map</h3>
             <p className="mt-3 text-neutral-600 dark:text-neutral-400">
-              Purchase access to unlock the full blueprint for {roleTitle}.
+              One-time access to your complete momentum blueprint for {roleTitle}.
             </p>
             <div className="mt-6 flex justify-center">
               <UnlockButtonClient role={roleSlug} />

@@ -78,6 +78,9 @@ function SuccessPageContent() {
         <p className="mt-4 text-neutral-600 dark:text-neutral-400">
           Please wait while we confirm your purchase.
         </p>
+        <p className="mt-6 text-sm text-neutral-500 dark:text-neutral-500">
+          Access saved — you can come back anytime.
+        </p>
       </main>
     );
   }
