@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 /**
@@ -13,7 +13,7 @@ import { useRouter, useSearchParams } from "next/navigation";
  *
  * Since we're on the client, we manually fetch the success route and read the redirect.
  */
-export default function SuccessPage() {
+function SuccessPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -106,4 +106,20 @@ export default function SuccessPage() {
   }
 
   return null;
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto max-w-2xl px-6 py-16 text-center">
+          <h1 className="text-3xl font-bold text-neutral-950 dark:text-neutral-50">
+            Loading...
+          </h1>
+        </main>
+      }
+    >
+      <SuccessPageContent />
+    </Suspense>
+  );
 }
