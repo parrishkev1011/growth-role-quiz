@@ -12,9 +12,12 @@
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "stripe": "^20.1.0"
+    "stripe": "^20.1.0",
+    "@vercel/kv": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "25.0.3",
+    "@types/react": "19.2.7",
     "eslint": "^9",
     "eslint-config-next": "16.1.1"
   }

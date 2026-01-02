@@ -20,6 +20,11 @@
 # production
 /build
 
+# Stripe fulfillment data (dev only, replace with DB in production)
+.data/
+stripe-fulfillment.json
+/build
+
 # misc
 .DS_Store
 *.pem
@@ -39,3 +44,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*.local
